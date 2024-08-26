@@ -23,6 +23,9 @@ in
   ];
 
   plugins = {
+    cmp-cmdline = {
+      enable = true;
+    };
     cmp = {
       enable = true;
       autoEnableSources = true;
