@@ -1,4 +1,6 @@
-# Khanelivim: My Nix-Powered Neovim Configuration
+# nixvim-config: My Nix-Powered Neovim Configuration
+
+Forked from khanelivim.
 
 This is my fully customized Neovim configuration, built with Nix and the
 powerful [Nixvim flake](https://github.com/nix-community/nixvim). Enjoy a
@@ -32,7 +34,7 @@ machines.
 **Option 1: Using `nix run` (Easiest):**
 
 ```bash
-nix run github:khaneliman/khanelivim
+nix run github:shipurjan/nixvim-config
 ```
 
 **Option 2: Adding as a Flake Input:**
@@ -43,20 +45,20 @@ In your system's Nix configuration (e.g., ~/.config/nixpkgs/flake.nix or
 ```nix
     inputs = {
       nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";  # Or your preferred channel
-      khanelivim.url = "github:khaneliman/khanelivim";
+      nixvim-config.url = "github:shipurjan/nixvim-config";
     };
 
-    outputs = { self, nixpkgs, khanelivim }: {
+    outputs = { self, nixpkgs, nixvim-config}: {
       # ... your other configuration ...
 
       # Add to your system packages or devShell if you want to make it available system-wide
       packages = with nixpkgs; [
-        khanelivim.packages.${system}.default
+        nixvim-config.packages.${system}.default
       ];
 
       # Or, use in a devShell:
       devShells.default = nixpkgs.mkShell {
-        nativeBuildInputs = [ khanelivim.packages.${system}.default ];
+        nativeBuildInputs = [ nixvim-config.packages.${system}.default ];
       };
     };
 ```
