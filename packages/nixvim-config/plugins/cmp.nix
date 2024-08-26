@@ -108,10 +108,6 @@ in
             priority = 300;
           }
           {
-            name = "fish";
-            priority = 250;
-          }
-          {
             name = "git";
             priority = 250;
           }
