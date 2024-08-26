@@ -23,6 +23,21 @@ in
   ];
 
   plugins = {
+    cmp-emoji = {
+      enable = true;
+    };
+    cmp-nvim-lsp = {
+      enable = true;
+    };
+    cmp-buffer = {
+      enable = true;
+    };
+    cmp-path = {
+      enable = true;
+    };
+    cmp_luasnip = {
+      enable = true;
+    };
     cmp-cmdline = {
       enable = true;
     };
@@ -51,8 +66,7 @@ in
         preselect = # Lua
           "cmp.PreselectMode.None";
 
-        snippet.expand = # Lua
-          "function(args) require('luasnip').lsp_expand(args.body) end";
+        snippet.expand = "luasnip";
 
         sources = [
           {
@@ -170,4 +184,8 @@ in
       };
     };
   };
+  extraConfigLua = ''
+    luasnip = require("luasnip")
+    local cmp = require'cmp'
+  '';
 }
