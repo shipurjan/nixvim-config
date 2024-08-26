@@ -128,10 +128,6 @@ in
             priority = 250;
           }
           {
-            name = "zsh";
-            priority = 250;
-          }
-          {
             name = "calc";
             priority = 150;
           }
